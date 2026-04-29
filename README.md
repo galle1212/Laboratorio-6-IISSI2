@@ -517,28 +517,28 @@ In order to populate the options of the `DropDownPicker` we need:
 
    ```Javascript
    useEffect(() => {
-    async function fetchRestaurantCategories() {
-      try {
-        const fetchedRestaurantCategories = await getRestaurantCategories()
-        const fetchedRestaurantCategoriesReshaped =
-          fetchedRestaurantCategories.map(e => {
-            return {
-              label: e.name,
-              value: e.id
-            }
-          })
-        setRestaurantCategories(fetchedRestaurantCategoriesReshaped)
-      } catch (error) {
-        showMessage({
-          message: `There was an error while retrieving restaurant categories. ${error} `,
-          type: 'error',
-          style: GlobalStyles.flashStyle,
-          titleStyle: GlobalStyles.flashTextStyle
-        })
-      }
-    }
-    fetchRestaurantCategories()
-  }, [])
+     async function fetchRestaurantCategories() {
+       try {
+         const fetchedRestaurantCategories = await getRestaurantCategories()
+         const fetchedRestaurantCategoriesReshaped =
+           fetchedRestaurantCategories.map(e => {
+             return {
+               label: e.name,
+               value: e.id
+             }
+           })
+         setRestaurantCategories(fetchedRestaurantCategoriesReshaped)
+       } catch (error) {
+         showMessage({
+           message: `There was an error while retrieving restaurant categories. ${error} `,
+           type: 'error',
+           style: GlobalStyles.flashStyle,
+           titleStyle: GlobalStyles.flashTextStyle
+         })
+       }
+     }
+     fetchRestaurantCategories()
+   }, [])
    ```
 
 1. Finally, we have to add the component in the `return` sentence of the `CreateRestaurantScreen` component. Find below a code snippet to add a `DropDownPicker` component for restaurant categories:
